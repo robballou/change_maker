@@ -26,9 +26,9 @@ defmodule Question do
     dollars + cents
   end
 
+  @spec correct?(number, Question) :: boolean
   def correct?(change, question) do
-    # IO.puts :standard_error, :io_lib.format("~w (~w, ~w)", [change == question.change_due, is_float(change), is_float(question.change_due)])
-    change == question.change_due
+    Float.round(change, 2) == Float.round(question.change_due, 2)
   end
 
 end

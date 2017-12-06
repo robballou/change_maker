@@ -36,9 +36,7 @@ defmodule InputLoop do
     {change, err} = Change.parse(input)
 
     # answer is correct if there are no errors and the change value is correct
-    question_correct = Question.correct? change, question
-    # IO.puts :io_lib.format "question_correct= ~w", [question_correct]
-    correct = !err and question_correct
+    correct = !err and Question.correct? change, question
 
     # create a new question if the user got it correct
     question = case correct do
