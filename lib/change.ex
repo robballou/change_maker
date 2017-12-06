@@ -55,11 +55,6 @@ defmodule Change do
     {unit, times}
   end
 
-  def total(change) do
-    change_total = Enum.reduce(Map.to_list(change), 0, fn item -> Change.unit_amount(item[0]) * item[1] end)
-    change_total
-  end
-
   def unit_amount(unit) do
     case unit do
     :twenty -> 20

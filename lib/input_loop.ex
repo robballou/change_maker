@@ -20,7 +20,7 @@ defmodule InputLoop do
 
       # tell the user about the error
       if err do
-        IO.puts "! Could not parse input: ~s", input
+        IO.puts :io_lib.format "! Could not parse input: ~s", [input]
       end
 
       # tell the user they got it incorrect
@@ -36,7 +36,9 @@ defmodule InputLoop do
     {change, err} = Change.parse(input)
 
     # answer is correct if there are no errors and the change value is correct
-    correct = !err and Question.correct? change, question
+    question_correct = Question.correct? change, question
+    IO.puts :io_lib.format "question_correct= ~w", [question_correct]
+    correct = !err and question_correct
 
     # create a new question if the user got it correct
     question = case correct do

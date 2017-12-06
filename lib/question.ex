@@ -27,6 +27,7 @@ defmodule Question do
   end
 
   def correct?(change, question) do
+    IO.puts :standard_error, :io_lib.format("~w (~w, ~w)", [change == question.change_due, is_float(change), is_float(question.change_due)])
     change == question.change_due
   end
 
