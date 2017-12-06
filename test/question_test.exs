@@ -9,5 +9,8 @@ defmodule QuestionTest do
 
     q = %Question{total: 10, tendered: 15, change_due: 0.5}
     assert Question.correct?(0.50, q) == true
+
+    q = %Question{total: 10, tendered: 15, change_due: 0.5}
+    assert Question.correct?(0.5, q) == true
   end
 end
